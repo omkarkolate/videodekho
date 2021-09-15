@@ -1,0 +1,43 @@
+.profile-form {
+	padding: 1rem;
+	margin: 1rem;
+	background-color: var(--color-white);
+}
+
+.input-field {
+	display: flex;
+	flex-direction: column;
+	margin: 1rem 0;
+}
+
+.label {
+	margin-bottom: 0.2rem;
+	color: gray;
+}
+
+.text-input {
+	padding: 0.5rem;
+	border: 1px solid gray;
+	border-radius: 0.2rem;
+}
+
+.text-input:focus {
+	outline-color: #2874f0;
+	caret-color: #2874f0;
+}
+
+.save-btn {
+	text-align: center;
+	width: 100%;
+	background-color: var(--color-primary);
+	color: var(--color-white);
+	padding: 0.5rem 0;
+	cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+	.profile-form {
+		width: 60%;
+		margin: 1rem auto;
+	}
+}

@@ -1,7 +1,7 @@
 import { Header } from "../../components/";
 import styles from "./playVideo.module.css";
 import { useParams } from "react-router-dom";
-// import { useAuth } from "../../authProvider/AuthProvider";
+import { useAuth } from "../../authProvider/AuthProvider";
 import { useLoader } from "../../customHooks/useLoader";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -9,7 +9,7 @@ import { VideoActionBar } from "../../components/index";
 import { useData } from "../../dataProvider/DataProvider";
 
 export function PlayVideo() {
-	// const { isUserLogedin } = useAuth();
+	const { isUserLogedin } = useAuth();
 	const { videoId } = useParams();
 	const { isLoaded, setIsLoaded, error, setError } = useLoader();
 	const [video, setVideo] = useState(null);
@@ -61,7 +61,7 @@ export function PlayVideo() {
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 						allowFullScreen
 					></iframe>
-					<VideoActionBar />
+					{isUserLogedin && <VideoActionBar videoId={videoId} />}
 				</div>
 			</div>
 		);

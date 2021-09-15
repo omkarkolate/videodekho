@@ -1,8 +1,8 @@
 import styles from "./iconBtns.module.css";
 import { useData } from "../../dataProvider/DataProvider";
-import { addOrRemoveVideo } from "../utils";
+import { addOrRemoveFromLikedVideos } from "../utils";
 
-export function HeartIconBtn({ videoId, from }) {
+export function HeartIconBtn({ videoId }) {
 	const {
 		state: { likedVideos, userId },
 		dispatch,
@@ -15,13 +15,12 @@ export function HeartIconBtn({ videoId, from }) {
 		<div
 			className={styles["heart-icon-btn"]}
 			onClick={() =>
-				addOrRemoveVideo(
+				addOrRemoveFromLikedVideos(
 					inArray,
 					userId,
 					videoId,
 					dispatch,
-					apiURL,
-					from
+					apiURL
 				)
 			}
 		>

@@ -1,30 +1,59 @@
 import styles from "./iconBtns.module.css";
 import { useData } from "../../dataProvider/DataProvider";
-import { addOrRemoveVideo } from "../utils";
+import {
+	addOrRemoveFromLikedVideos,
+	addOrRemoveFromPlaylist,
+	addOrRemoveFromWatchLater
+} from "../utils";
 
 export function TrashIconBtn({ videoId, from }) {
 	const {
-		state: { likedVideos, userId },
+		state: { userId },
 		dispatch,
 		apiURL
 	} = useData();
 
-	const inArray = likedVideos.find(({ _id }) => _id === videoId);
+	const inArray = true;
 
-	return (
-		<div
-			className={styles["icon-btn"]}
-			onClick={() =>
-				addOrRemoveVideo(
+	function removeFrom() {
+		switch (from) {
+			case "likedVideos":
+				addOrRemoveFromLikedVideos(
 					inArray,
 					userId,
 					videoId,
 					dispatch,
-					apiURL,
-					from
-				)
-			}
-		>
+					apiURL
+				);
+				break;
+
+			case "playlist":
+				addOrRemoveFromPlaylist(
+					inArray,
+					userId,
+					videoId,
+					dispatch,
+					apiURL
+				);
+				break;
+
+			case "watchLater":
+				addOrRemoveFromWatchLater(
+					inArray,
+					userId,
+					videoId,
+					dispatch,
+					apiURL
+				);
+				break;
+
+			default:
+				break;
+		}
+	}
+
+	return (
+		<div className={styles["icon-btn"]} onClick={removeFrom}>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				className="icon icon-tabler icon-tabler-trash"

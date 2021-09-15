@@ -1,0 +1,33 @@
+.message-card {
+	background-color: var(--color-white);
+	margin: 1rem auto;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.message-text {
+	margin: 1rem;
+	color: green;
+	font-weight: 500;
+	font-size: 1.5rem;
+}
+
+.shop-now-btn {
+	background-color: var(--color-theme);
+	padding: 1rem;
+	color: var(--color-white);
+}
+
+@media screen and (min-width: 768px) {
+	.message-card {
+		width: 50%;
+		padding: 2rem;
+	}
+
+	.shop-now-btn {
+		padding: 1rem 3rem;
+	}
+}
