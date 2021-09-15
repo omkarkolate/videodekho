@@ -1,18 +1,8 @@
 import styles from "./videoCard.module.css";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../authProvider/AuthProvider";
-import { HeartIconBtn, TrashIconBtn } from "../index";
+import { TrashIconBtn } from "../index";
 
 export function VideoCard({ videoId, youtubeId, title, icon }) {
-	const { isUserLogedin } = useAuth();
-
-	const displayIconBtn =
-		icon === "heart" ? (
-			<HeartIconBtn videoId={videoId} />
-		) : (
-			<TrashIconBtn videoId={videoId} />
-		);
-
 	return (
 		<div className={styles["video-card"]}>
 			<Link to={`/play-video/${videoId}`}>
@@ -26,7 +16,7 @@ export function VideoCard({ videoId, youtubeId, title, icon }) {
 					<div className={styles["video-title"]}>{title}</div>
 				</div>
 			</Link>
-			{isUserLogedin && displayIconBtn}
+			{icon && <TrashIconBtn videoId={videoId} />}
 		</div>
 	);
 }

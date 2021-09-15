@@ -1,7 +1,7 @@
 export function dataReducer(state, { type, payload }) {
 	switch (type) {
-		case "ADD_PRODUCTS":
-			return { ...state, products: payload };
+		case "ADD_VIDEOS":
+			return { ...state, videos: payload };
 
 		case "SAVE_USER":
 			return { ...state, userId: payload._id, ...payload };

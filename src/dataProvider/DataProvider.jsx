@@ -21,7 +21,8 @@ export function DataProvider({ children }) {
 		history: []
 	});
 
-	const apiURL = process.env.REACT_APP_apiURL;
+	// const apiURL = process.env.REACT_APP_apiURL;
+	const apiURL = "https://videodekho.omkarkolate.repl.co";
 
 	return (
 		<DataContext.Provider value={{ state, dispatch, apiURL }}>

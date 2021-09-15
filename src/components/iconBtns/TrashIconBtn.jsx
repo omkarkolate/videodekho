@@ -2,7 +2,7 @@ import styles from "./iconBtns.module.css";
 import { useData } from "../../dataProvider/DataProvider";
 import { addOrRemoveVideo } from "../utils";
 
-export function HeartIconBtn({ videoId, from }) {
+export function TrashIconBtn({ videoId, from }) {
 	const {
 		state: { likedVideos, userId },
 		dispatch,
