@@ -5,7 +5,7 @@ import { TrashIconBtn } from "../index";
 export function VideoCard({ videoId, youtubeId, title, icon }) {
 	return (
 		<div className={styles["video-card"]}>
-			<Link to={`/play-video/${videoId}`}>
+			<Link to={`/watch/${videoId}`}>
 				<div className={styles["video-thumbnail"]}>
 					<img
 						src={`https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg`}

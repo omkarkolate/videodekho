@@ -35,14 +35,14 @@ export function Home() {
 	if (error) {
 		return (
 			<div className={styles["home-page"]}>
-				<Header brandName searchIcon />
+				<Header brandName homepage />
 				<div className="error">Error: Somthing Went wrong. :(</div>
 			</div>
 		);
 	} else if (!isLoaded) {
 		return (
 			<div className={styles["home-page"]}>
-				<Header brandName searchIcon />
+				<Header brandName homepage />
 				<div className="loading">Loading...</div>
 			</div>
 		);
