@@ -1,9 +1,9 @@
-import styles from "./productCard.module.css";
+import styles from "./videoCard.module.css";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../authProvider/AuthProvider";
 import { HeartIconBtn, TrashIconBtn } from "../index";
 
-export function ProductCard({ videoId, youtubeId, title, icon }) {
+export function VideoCard({ videoId, youtubeId, title, icon }) {
 	const { isUserLogedin } = useAuth();
 
 	const displayIconBtn =
@@ -18,7 +18,7 @@ export function ProductCard({ videoId, youtubeId, title, icon }) {
 			<Link to={`/play-video/${videoId}`}>
 				<div className={styles["video-thumbnail"]}>
 					<img
-						src={`https://img.youtube.com/vi/${youtubeId}/0.jpg`}
+						src={`https://img.youtube.com/vi/${youtubeId}/mqdefault.jpg`}
 						alt="thumbnail loading..."
 					/>
 				</div>

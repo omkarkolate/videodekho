@@ -6,7 +6,7 @@
 }
 
 .video-thumbnail {
-	height: 15rem;
+	height: 10rem;
 }
 
 .video-thumbnail > img {
@@ -16,6 +16,10 @@
 
 .video-info {
 	padding: 0.5rem;
+}
+
+.video-title {
+	font-weight: 500;
 }
 
 @media screen and (min-width: 768px) {
