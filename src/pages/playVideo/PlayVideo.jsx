@@ -15,6 +15,8 @@ export function PlayVideo() {
 	const [video, setVideo] = useState(null);
 	const { apiURL } = useData();
 
+	window.scrollTo(0, 0);
+
 	useEffect(() => {
 		(async function () {
 			try {

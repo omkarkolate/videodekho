@@ -1,26 +1,26 @@
 import { Header, VideoCard, MessageCard } from "../../components/";
-import styles from "./likedVideos.module.css";
+import styles from "./watchLater.module.css";
 import { useData } from "../../dataProvider/DataProvider";
 
-export function LikedVideos() {
+export function WatchLater() {
 	const {
-		state: { likedVideos }
+		state: { watchLater }
 	} = useData();
 
-	const videos = likedVideos.map((video) => (
+	const videos = watchLater.map((video) => (
 		<VideoCard
 			key={video._id}
 			videoId={video._id}
 			icon
 			{...video}
-			from="likedVideos"
+			from="watchLater"
 		/>
 	));
 
 	return (
-		<div className={styles["likedVideos-page"]}>
-			<Header brandName title="Liked Videos" />
-			{likedVideos.length > 0 ? (
+		<div className={styles["watchLater-page"]}>
+			<Header brandName title="Watch Later" />
+			{watchLater.length > 0 ? (
 				<div className={styles["video-grid"]}>{videos}</div>
 			) : (
 				<MessageCard message="No liked videos" />

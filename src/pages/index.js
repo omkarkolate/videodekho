@@ -4,4 +4,6 @@ export { Profile } from "./profile/Profile";
 export { Login } from "./login/Login";
 export { NoMatch } from "./noMatch/NoMatch";
 export { SignUp } from "./signup/SignUp";
-export { LikedVideos } from "./likedVideos/LikedVideos"
+export { LikedVideos } from "./likedVideos/LikedVideos";
+export { Playlist } from "./playlist/Playlist";
+export { WatchLater } from "./watchLater/WatchLater";

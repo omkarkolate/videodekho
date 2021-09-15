@@ -2,7 +2,7 @@ import styles from "./videoCard.module.css";
 import { Link } from "react-router-dom";
 import { TrashIconBtn } from "../index";
 
-export function VideoCard({ videoId, youtubeId, title, icon }) {
+export function VideoCard({ videoId, youtubeId, title, icon, from }) {
 	return (
 		<div className={styles["video-card"]}>
 			<Link to={`/watch/${videoId}`}>
@@ -16,7 +16,7 @@ export function VideoCard({ videoId, youtubeId, title, icon }) {
 					<div className={styles["video-title"]}>{title}</div>
 				</div>
 			</Link>
-			{icon && <TrashIconBtn videoId={videoId} />}
+			{icon && <TrashIconBtn videoId={videoId} from={from} />}
 		</div>
 	);
 }

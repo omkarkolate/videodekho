@@ -109,13 +109,10 @@ export function Header({ homepage, brandName, title, searchIcon }) {
 				<div className={styles["option"]}>Watch Later</div>
 			</Link>
 			<Link to="/playlist">
-				<div className={styles["option"]}>playlist</div>
+				<div className={styles["option"]}>Playlist</div>
 			</Link>
 			<Link to="/likedVideos">
 				<div className={styles["option"]}>Liked Videos</div>
-			</Link>
-			<Link to="/history">
-				<div className={styles["option"]}>history</div>
 			</Link>
 			<Link to="/">
 				<div className={styles["option"]} onClick={logoutHandler}>
