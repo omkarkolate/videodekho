@@ -1,0 +1,150 @@
+.header {
+	background-color: var(--color-theme);
+	padding: 0.7rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 95%;
+	z-index: 1;
+}
+
+.header-left {
+	display: flex;
+	align-items: center;
+	flex-basis: 70%;
+}
+
+.brand-md {
+	display: none;
+}
+.brand-sm {
+	margin-left: 0.5rem;
+}
+
+.header-right {
+	display: flex;
+}
+
+.header-back-btn {
+	margin-top: auto;
+	cursor: pointer;
+}
+
+.brand-name {
+	margin: 0 0.3rem;
+	color: var(--color-white);
+	font-weight: 500;
+	font-style: italic;
+}
+
+.brand-logo {
+	margin: 0 0.3rem;
+	background-color: yellow;
+	color: var(--color-theme);
+	font-weight: 500;
+	font-size: 1.2rem;
+	padding: 0 5px;
+	border-radius: 20px;
+}
+
+.header-title {
+	color: var(--color-white);
+}
+
+.login {
+	color: var(--color-white);
+	margin-left: 0.5rem;
+	cursor: pointer;
+}
+
+.user-menu-icon {
+	cursor: pointer;
+}
+
+.user-and-arrow-icon {
+	display: flex;
+}
+
+.username {
+	color: white;
+	font-weight: 500;
+	display: none;
+}
+
+.drop-down-menu {
+	background-color: white;
+	padding: 0.5rem;
+	position: absolute;
+	top: 2.5rem;
+	right: 1rem;
+	z-index: 2;
+	border: 1px solid grey;
+}
+
+.option {
+	padding: 0.5rem;
+	cursor: pointer;
+	border-bottom: 1px solid var(--color-lightgrey);
+}
+
+.option:hover {
+	background-color: whitesmoke;
+	color: var(--color-theme);
+}
+
+@media screen and (min-width: 768px) {
+	.header-back-btn,
+	.brand-logo,
+	.header-title,
+	.brand-sm,
+	.user-icon {
+		display: none;
+	}
+
+	.header {
+		padding: 0.5rem 5rem;
+		width: 80%;
+	}
+
+	.brand-md {
+		display: block;
+	}
+
+	.header-left,
+	.header-right {
+		align-items: center;
+	}
+
+	.cart-option {
+		margin: 0 2rem;
+	}
+
+	.login {
+		color: var(--color-theme);
+		background-color: var(--color-white);
+		font-weight: 500;
+		padding: 0.3rem 2rem;
+	}
+
+	.username {
+		display: inline;
+	}
+
+	.drop-down-menu {
+		right: 5rem;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.header {
+		padding: 0.5rem 11rem;
+		width: 75%;
+	}
+
+	.drop-down-menu {
+		right: 10rem;
+	}
+}
