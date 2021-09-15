@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { useLoader } from "../../customHooks/useLoader";
 import { useEffect, useState } from "react";
 import axios from "axios";
-// import { HeartIconBtn } from "../../components/index";
+import { VideoActionBar } from "../../components/index";
 import { useData } from "../../dataProvider/DataProvider";
 
 export function PlayVideo() {
@@ -61,6 +61,7 @@ export function PlayVideo() {
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 						allowFullScreen
 					></iframe>
+					<VideoActionBar />
 				</div>
 			</div>
 		);

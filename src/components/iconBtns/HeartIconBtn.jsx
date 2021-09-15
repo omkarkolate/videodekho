@@ -13,7 +13,7 @@ export function HeartIconBtn({ videoId, from }) {
 
 	return (
 		<div
-			className={styles["icon-btn"]}
+			className={styles["heart-icon-btn"]}
 			onClick={() =>
 				addOrRemoveVideo(
 					inArray,

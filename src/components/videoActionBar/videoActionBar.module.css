@@ -1,0 +1,23 @@
+.video-action-bar {
+	padding: 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.add-playlist,
+.add-watch-later {
+	display: block;
+	padding: 0.5rem;
+	border: 0;
+	color: white;
+	font-weight: 600;
+}
+
+.add-playlist {
+	background-color: var(--color-primary);
+}
+
+.add-watch-later {
+	background-color: var(--color-secondary);
+}
