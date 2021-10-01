@@ -23,7 +23,7 @@ export function WatchLater() {
 			{watchLater.length > 0 ? (
 				<div className={styles["video-grid"]}>{videos}</div>
 			) : (
-				<MessageCard message="No liked videos" />
+				<MessageCard message="No videos for watch later" />
 			)}
 		</div>
 	);

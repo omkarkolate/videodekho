@@ -4,7 +4,7 @@ export function NoMatch() {
 	return (
 		<div>
 			<Header />
-			<MessageCard message={"Error: 404, You are at wrong place."} />
+			<MessageCard message={"Error: 404, Sorry page not found. :("} />
 		</div>
 	);
 }

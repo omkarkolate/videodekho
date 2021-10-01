@@ -38,6 +38,20 @@ export function Login() {
 		}
 	}
 
+	async function guestLoginHandler() {
+		setIsLoaded(true);
+		const data = await loginWithCredintials("guest@email.com", "guest@123");
+
+		if (data.success) {
+			setIsLoaded(false);
+			await dispatch({ type: "SAVE_USER", payload: { ...data.user } });
+			navigate(state?.from ? state.from : "/");
+		} else {
+			setIsLoaded(false);
+			setError(data.error);
+		}
+	}
+
 	return (
 		<div>
 			<header className={styles["login-page-header"]}>Kharidari</header>
@@ -71,6 +85,12 @@ export function Login() {
 					</div>
 					<div className={styles["login-btn"]} onClick={loginHandler}>
 						Login
+					</div>
+					<div
+						className={styles["guest-login-btn"]}
+						onClick={guestLoginHandler}
+					>
+						Login as Guest
 					</div>
 					<div className="loading">{isLoaded && "Loging in..."}</div>
 					<div className="error">{error}</div>

@@ -23,7 +23,7 @@ export function Playlist() {
 			{playlist.length > 0 ? (
 				<div className={styles["video-grid"]}>{videos}</div>
 			) : (
-				<MessageCard message="No liked videos" />
+				<MessageCard message="Playlist is empty." />
 			)}
 		</div>
 	);
