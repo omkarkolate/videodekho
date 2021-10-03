@@ -7,3 +7,5 @@ export { SignUp } from "./signup/SignUp";
 export { LikedVideos } from "./likedVideos/LikedVideos";
 export { Playlist } from "./playlist/Playlist";
 export { WatchLater } from "./watchLater/WatchLater";
+export { WatchHistory } from "./watchHistory/WatchHistory";
+export { ChangePassword } from "./changePassword/ChangePassword";

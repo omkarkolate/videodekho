@@ -37,6 +37,28 @@
 	caret-color: #2874f0;
 }
 
+.text-input-valid {
+	padding: 0.5rem;
+	border: 1px solid gray;
+	border-radius: 0.2rem;
+}
+
+.text-input-valid:focus {
+	outline-color: green;
+	caret-color: green;
+}
+
+.text-input-invalid {
+	padding: 0.5rem;
+	border: 1px solid red;
+	border-radius: 0.2rem;
+}
+
+.text-input-invalid:focus {
+	outline-color: red;
+	caret-color: red;
+}
+
 .login-btn {
 	text-align: center;
 	width: 100%;
@@ -44,6 +66,16 @@
 	color: var(--color-white);
 	padding: 0.5rem 0;
 	cursor: pointer;
+}
+
+.login-link {
+	text-decoration: italic;
+	color: var(--color-theme);
+	cursor: pointer;
+	text-align: center;
+	font-size: 1.2rem;
+	font-weight: 500;
+	margin-top: 1rem;
 }
 
 @media screen and (min-width: 768px) {

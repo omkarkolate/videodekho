@@ -3,7 +3,8 @@ import { useData } from "../../dataProvider/DataProvider";
 import {
 	addOrRemoveFromLikedVideos,
 	addOrRemoveFromPlaylist,
-	addOrRemoveFromWatchLater
+	addOrRemoveFromWatchLater,
+	addOrRemoveFromWatchHistory
 } from "../utils";
 
 export function TrashIconBtn({ videoId, from }) {
@@ -39,6 +40,16 @@ export function TrashIconBtn({ videoId, from }) {
 
 			case "watchLater":
 				addOrRemoveFromWatchLater(
+					inArray,
+					userId,
+					videoId,
+					dispatch,
+					apiURL
+				);
+				break;
+
+			case "watchHistory":
+				addOrRemoveFromWatchHistory(
 					inArray,
 					userId,
 					videoId,

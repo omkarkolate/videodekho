@@ -18,7 +18,7 @@ export function DataProvider({ children }) {
 		likedVideos: [],
 		watchLater: [],
 		playlist: [],
-		history: []
+		watchHistory: []
 	});
 
 	const apiURL = process.env.REACT_APP_apiURL;

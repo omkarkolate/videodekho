@@ -8,7 +8,9 @@ import {
 	SignUp,
 	LikedVideos,
 	Playlist,
-	WatchLater
+	WatchLater,
+	WatchHistory,
+	ChangePassword
 } from "./pages/";
 import { Routes, Route } from "react-router-dom";
 import { PrivateRoute } from "./privateRoute/PrivateRoute";
@@ -25,6 +27,11 @@ export default function App() {
 				<PrivateRoute path="/likedVideos" element={<LikedVideos />} />
 				<PrivateRoute path="/playlist" element={<Playlist />} />
 				<PrivateRoute path="/watchLater" element={<WatchLater />} />
+				<PrivateRoute path="/watchHistory" element={<WatchHistory />} />
+				<PrivateRoute
+					path="/change-password"
+					element={<ChangePassword />}
+				/>
 				<Route path="*" element={<NoMatch />} />
 			</Routes>
 		</div>

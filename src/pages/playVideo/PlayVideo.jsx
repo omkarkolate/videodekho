@@ -7,13 +7,17 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { VideoActionBar } from "../../components/index";
 import { useData } from "../../dataProvider/DataProvider";
+import { addToWatchHistory } from "../utils";
 
 export function PlayVideo() {
 	const { isUserLogedin } = useAuth();
 	const { videoId } = useParams();
 	const { isLoaded, setIsLoaded, error, setError } = useLoader();
 	const [video, setVideo] = useState(null);
-	const { apiURL } = useData();
+	const {
+		state: { watchHistory },
+		apiURL
+	} = useData();
 
 	window.scrollTo(0, 0);
 

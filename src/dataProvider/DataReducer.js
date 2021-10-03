@@ -49,20 +49,22 @@ export function dataReducer(state, { type, payload }) {
 				playlist: state.playlist.filter(({ _id }) => _id !== payload)
 			};
 
-		case "ADD_TO_HISTORY":
+		case "ADD_TO_WATCH_HISTORY":
 			return {
 				...state,
-				history: [...payload, ...state.history]
+				watchHistory: [payload, ...state.watchHistory]
 			};
 
-		case "REMOVE_FROM_HISTORY":
+		case "REMOVE_FROM_WATCH_HISTORY":
 			return {
 				...state,
-				history: state.history.filter(({ _id }) => _id !== payload)
+				watchHistory: state.watchHistory.filter(
+					({ _id }) => _id !== payload
+				)
 			};
 
-		case "CLEAR_HISTORY":
-			return { ...state, history: payload };
+		case "CLEAR_WATCH_HISTORY":
+			return { ...state, watchHistory: payload };
 
 		case "RESET_USER_DATA":
 			return { ...state, ...payload };

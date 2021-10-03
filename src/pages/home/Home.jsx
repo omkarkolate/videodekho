@@ -7,7 +7,12 @@ import axios from "axios";
 
 export function Home() {
 	const { isLoaded, setIsLoaded, error, setError } = useLoader();
-	const { state, dispatch, apiURL } = useData();
+	const {
+		state: { videos, userId, watchHistory },
+		dispatch,
+		apiURL
+	} = useData();
+	window.scrollTo(0, 0);
 
 	useEffect(() => {
 		(async function () {
@@ -47,8 +52,16 @@ export function Home() {
 			</div>
 		);
 	} else {
-		const videosList = state.videos.map((video) => (
-			<VideoCard key={video._id} videoId={video._id} {...video} />
+		const videosList = videos.map((video) => (
+			<VideoCard
+				key={video._id}
+				videoId={video._id}
+				{...video}
+				userId={userId}
+				dispatch={dispatch}
+				watchHistory={watchHistory}
+				apiURL={apiURL}
+			/>
 		));
 
 		return (

@@ -1,24 +1,24 @@
 import { useState } from "react";
-import styles from "./signup.module.css";
-import { useNavigate } from "react-router-dom";
+import styles from "./changePassword.module.css";
 import { useLoader } from "../../customHooks/useLoader";
 import axios from "axios";
 import { useData } from "../../dataProvider/DataProvider";
 import { validate, isAllInputsValid } from "../utils";
+import { Header } from "../../components/index";
 
-export function SignUp() {
+export function ChangePassword() {
 	const [formData, setFormData] = useState({
-		firstName: { value: "", isValid: null, className: "text-input" },
-		lastName: { value: "", isValid: null, className: "text-input" },
-		emailId: { value: "", isValid: null, className: "text-input" },
+		oldPassword: { value: "", isValid: null, className: "text-input" },
 		password: { value: "", isValid: null, className: "text-input" },
 		confirmPassword: { value: "", isValid: null, className: "text-input" }
 	});
 	const [validationError, setValidationError] = useState(null);
 	const { isLoaded, setIsLoaded, error, setError } = useLoader();
 	const [message, setMessage] = useState(null);
-	const navigate = useNavigate();
-	const { apiURL } = useData();
+	const {
+		state: { userId },
+		apiURL
+	} = useData();
 
 	function updateFormData(event) {
 		if (validationError) setValidationError(null);
@@ -32,9 +32,7 @@ export function SignUp() {
 
 	function resetFormData() {
 		setFormData({
-			firstName: { value: "", isValid: null, className: "text-input" },
-			lastName: { value: "", isValid: null, className: "text-input" },
-			emailId: { value: "", isValid: null, className: "text-input" },
+			oldPassword: { value: "", isValid: null, className: "text-input" },
 			password: { value: "", isValid: null, className: "text-input" },
 			confirmPassword: {
 				value: "",
@@ -44,90 +42,60 @@ export function SignUp() {
 		});
 	}
 
-	async function signUp() {
+	async function changePassword() {
 		if (!isAllInputsValid(formData)) {
 			setValidationError("Please fill the required information");
 			return;
 		}
-
 		try {
 			setIsLoaded(true);
-			const { data } = await axios.post(`${apiURL}/signup`, {
-				firstName: formData.firstName.value,
-				lastName: formData.lastName.value,
-				emailId: formData.emailId.value,
-				password: formData.password.value
-			});
+			const { data } = await axios.put(
+				`${apiURL}/users/change-password/${userId}`,
+				{
+					oldPassword: formData.oldPassword.value,
+					newPassword: formData.password.value
+				}
+			);
 			if (data.success) {
 				setIsLoaded(false);
 				setMessage(data.message);
-				resetFormData();
 			}
+			resetFormData();
 		} catch (error) {
 			const {
 				response: { data }
 			} = error;
 			setIsLoaded(false);
-			setError(data.message);
+			setError(`${data.message}. ${data.error}`);
 		}
-	}
-
-	function gotoLogin() {
-		navigate("/login");
 	}
 
 	return (
 		<div>
-			<header className={styles["login-page-header"]}>Kharidari</header>
+			<Header brandName title="Change Password" />
 			<div>
 				<form className={styles["login-form"]}>
 					<div className={styles["input-field"]}>
-						<label className={styles["label"]} htmlFor="firstName">
-							First name*
+						<label className={styles["label"]} htmlFor="password">
+							Old Password*
 						</label>
 						<input
-							type="text"
-							className={styles[formData.firstName.className]}
-							placeholder="First name*"
-							id="firstName"
-							value={formData.firstName.value}
-							onChange={updateFormData}
-						/>
-					</div>
-					<div className={styles["input-field"]}>
-						<label className={styles["label"]} htmlFor="lastName">
-							Last Name*
-						</label>
-						<input
-							type="text"
-							className={styles[formData.lastName.className]}
-							placeholder="Last Name*"
-							id="lastName"
-							value={formData.lastName.value}
-							onChange={updateFormData}
-						/>
-					</div>
-					<div className={styles["input-field"]}>
-						<label className={styles["label"]} htmlFor="emailId">
-							Email id*
-						</label>
-						<input
-							type="text"
-							className={styles[formData.emailId.className]}
-							placeholder="Email id*"
-							id="emailId"
-							value={formData.emailId.value}
+							type="password"
+							className={styles[formData.oldPassword.className]}
+							placeholder="Old Password*"
+							id="oldPassword"
+							value={formData.oldPassword.value}
 							onChange={updateFormData}
 						/>
 					</div>
 					<div className={styles["input-field"]}>
 						<label className={styles["label"]} htmlFor="password">
-							Password*
+							New Password*
 						</label>
 						<input
 							type="password"
 							className={styles[formData.password.className]}
-							placeholder="Password*"
+							placeholder="New Password*"
 							id="password"
 							value={formData.password.value}
 							onChange={updateFormData}
@@ -151,25 +119,18 @@ export function SignUp() {
 							onChange={updateFormData}
 						/>
 					</div>
-					<div className={styles["login-btn"]} onClick={signUp}>
-						{isLoaded ? "Siging Up..." : "Sign Up"}
+					<div
+						className={styles["login-btn"]}
+						onClick={changePassword}
+					>
+						Change Password
 					</div>
 					<div className="error">{validationError}</div>
 					<div className="loading">
-						{message && (
-							<div>
-								Successfully Signed up, now login.
-								<div
-									className={styles["login-btn"]}
-									onClick={gotoLogin}
-								>
-									Go to Login
-								</div>
-							</div>
-						)}
+						{message && <div>Password changed successfully.</div>}
 					</div>
-					<div className={styles["login-link"]} onClick={gotoLogin}>
-						{!message && "Log in"}
+					<div className="loading">
+						{isLoaded && "Changing Password..."}
 					</div>
 					<div className="error">{error}</div>
 				</form>
